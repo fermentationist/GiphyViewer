@@ -1,0 +1,45 @@
+img {
+	height:175px;
+	margin:20px 10px;
+	display:inline;
+}
+
+.btn-group {
+	margin:10px 5px;
+}
+
+.clearfix :after{
+	display:block;
+	content="";
+	clear:both;
+}
+
+.top-row {
+	width:100%;
+}
+
+.panel {
+	margin:20px;
+	float:right;
+}
+
+#gifArea {
+	display:inline;
+}
+
+input {
+	margin-right:10px;
+}
+
+.well {
+	height:600px;
+	overflow: scroll;
+	scroll-behavior: 
+}
+.body {
+	width:100%;
+	position:absolute;
+}
+#buttonArea {
+	display:inline;
+}
