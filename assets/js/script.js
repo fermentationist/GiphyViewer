@@ -3,16 +3,29 @@ $(document).ready(function() {
 
 	var numberOfGIFs = 25;
 
-	$("#submit-button").on("click", function(){
-		var newButton = $("#new-button").val();
+	$("#submit-button").on("click", submitButton);
+
+	$(document).on("keypress",function(event){
+		console.log("key pressed:" +event.key);
+		if(event.key === "Enter"){
+			console.log("enter pressed");
+			submitButton();
+		}
+	})
+
+	function submitButton(){
+		var newButton = $("#new-button").val().trim();
+		$("#new-button").val("");
+		if(!/\w/.test(newButton)){
+			return;
+		}
 		newButton = newButton.split(" ").join("_");
 		console.log(newButton);
-		$("#new-button").val("");
 		populateButtons([newButton]);
 
-	});
+	}
 
-	var tagArraySample = ["beer", "brewing", "brewer", "brewery", "hops", "malt", "barley", "water", "yeast", "zymurgy", "ale", "lager"];
+	var tagArraySample = ["beer", "brewing", "brewer", "brewery", "hops", "malt", "barley", "water", "yeast", "IPA", "ale", "lager"];
 	
 	function populateButtons(tagArray){
 		var button, removeButton, btnGroup;
@@ -59,10 +72,15 @@ $(document).ready(function() {
 	}
 
 	function displayGif(gif){
-		console.log("gif = "+gif);
+		console.log("gif = ",gif);
 		var stillURL = gif.images.original_still.url;
 		var gifURL = gif.images.original.url;
+		var rating = gif.rating;
+		console.log("rated:"+rating);
 		var gifStill = $("<img>").attr("src", stillURL);
+		var gifDiv = $("<div>").addClass("imgDiv");
+		var caption = $("<span>").addClass("caption").text("rated: "+ rating).append(gifStill);
+		gifDiv.append(gifStill).append(caption);
 			gifStill.on("click", function(event){
 				console.log("click");
 				if ($(event.target).attr("src") === stillURL){
@@ -72,8 +90,7 @@ $(document).ready(function() {
 				}
 				$(event.target).attr("src", gif);
 			})
-			gifStill.append('<label for="')
-			$("#gifArea").append(gifStill);
+			$("#gifArea").append(gifDiv);
 
 	}
 
