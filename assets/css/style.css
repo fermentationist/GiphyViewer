@@ -36,9 +36,10 @@ input {
 	overflow: scroll;
 	scroll-behavior: 
 }
-.body {
+body {
 	width:100%;
 	position:absolute;
+	background-color:#E4EFF8;
 }
 #buttonArea {
 	display:inline;
