@@ -12,7 +12,7 @@ $(document).ready(function() {
 
 	});
 
-	var tagArraySample = ["beer", "brewing", "brewer", "brewery", "Duff", "hops", "malt", "barley", "water", "yeast"];
+	var tagArraySample = ["beer", "brewing", "brewer", "brewery", "hops", "malt", "barley", "water", "yeast", "zymurgy", "ale", "lager"];
 	
 	function populateButtons(tagArray){
 		var button, removeButton, btnGroup;
